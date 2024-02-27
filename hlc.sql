@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-02-2024 a las 17:07:55
+-- Tiempo de generación: 27-02-2024 a las 19:01:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -29,20 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `compras` (
   `cod_prod` int(11) NOT NULL,
-  `nom_u` varchar(50) NOT NULL,
   `dni_u` varchar(11) NOT NULL,
-  `mail_u` varchar(50) NOT NULL,
-  `cant_prod` int(11) NOT NULL,
-  `telef_u` int(9) NOT NULL,
-  `recogida_tienda` tinytext NOT NULL
+  `cod_pedido` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `compras`
 --
 
-INSERT INTO `compras` (`cod_prod`, `nom_u`, `dni_u`, `mail_u`, `cant_prod`, `telef_u`, `recogida_tienda`) VALUES
-(1, 'paco', '32132133D', 'dwdawdwa@dadwdaw.com', 1, 312312313, 'si');
+INSERT INTO `compras` (`cod_prod`, `dni_u`, `cod_pedido`) VALUES
+(1, '20406048J', 1);
 
 -- --------------------------------------------------------
 
@@ -52,19 +48,19 @@ INSERT INTO `compras` (`cod_prod`, `nom_u`, `dni_u`, `mail_u`, `cant_prod`, `tel
 
 CREATE TABLE `productos` (
   `cod_prod` int(11) NOT NULL,
-  `precio_prod` varchar(11) NOT NULL,
-  `nom_prod` varchar(35) NOT NULL
+  `nom_prod` varchar(35) NOT NULL,
+  `precio_prod` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`cod_prod`, `precio_prod`, `nom_prod`) VALUES
-(1, '599.99€', 'Gafas Vr Basica'),
-(2, '799.99€', 'Gafas Vr Pro'),
-(3, '399.99€', 'Traje'),
-(4, '359.99€', 'Guantes');
+INSERT INTO `productos` (`cod_prod`, `nom_prod`, `precio_prod`) VALUES
+(1, 'Gafas Vr Basica', '599.99€'),
+(2, 'Gafas Vr Pro', '799.99€'),
+(3, 'Traje', '399.99€'),
+(4, 'Guantes', '359.99€');
 
 -- --------------------------------------------------------
 
@@ -99,8 +95,17 @@ CREATE TABLE `usuario` (
   `nom_u` varchar(50) NOT NULL,
   `ap_u` varchar(50) NOT NULL,
   `mail_u` varchar(50) NOT NULL,
-  `pass_u` varchar(50) NOT NULL
+  `pass_u` varchar(50) NOT NULL,
+  `dni_u` varchar(11) NOT NULL,
+  `pais_u` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`nom_u`, `ap_u`, `mail_u`, `pass_u`, `dni_u`, `pais_u`) VALUES
+('Emmanuel', 'Gazmey Santiago', 'anuelaa@arcangel.com', 'anuel', '20406048J', 'España');
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,7 @@ INSERT INTO `usuarios` (`usuario`, `clave`) VALUES
 -- Indices de la tabla `compras`
 --
 ALTER TABLE `compras`
-  ADD PRIMARY KEY (`cod_prod`);
+  ADD PRIMARY KEY (`cod_pedido`);
 
 --
 -- Indices de la tabla `productos`
@@ -146,14 +151,10 @@ ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`cod_prov`);
 
 --
--- Restricciones para tablas volcadas
+-- Indices de la tabla `usuario`
 --
-
---
--- Filtros para la tabla `compras`
---
-ALTER TABLE `compras`
-  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`cod_prod`) REFERENCES `productos` (`cod_prod`);
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`dni_u`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
