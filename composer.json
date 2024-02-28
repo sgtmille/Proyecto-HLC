@@ -1,7 +1,0 @@
-{
-    "name": "dumblarghost/proyecto-hlc",
-    "description": "Proyecto para otros",
-    "require": {
-        "pecee/simple-router": "^5.4"
-    }
-}
