@@ -1,0 +1,11 @@
+@use "globales/variables" as var;
+.form-page{
+  display:flex;
+  flex-direction:column;
+  padding:1.6rem;
+  background: rgb(93,109,126);
+  background: linear-gradient(180deg, rgba(93,109,126,1) 0%, rgba(214,234,255,1) 100%);
+  .form-container{
+    flex-grow:1;
+  }
+}  

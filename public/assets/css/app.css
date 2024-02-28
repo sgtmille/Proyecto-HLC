@@ -175,7 +175,7 @@ select {
 }
 
 .about-us {
-  background-image: url("/public/assets/imgs/fondo-about-us.png");
+  background-image: url("/assets/imgs/fondo-about-us.png");
   background-size: cover;
   background-position: center;
   min-height: calc(100vh - 52px);
