@@ -1,0 +1,47 @@
+@use "globales/variables" as var;
+@use "globales/mixins" as mx;
+footer{
+  background-color:var.$primary-color;
+  padding:3rem 3rem;
+  color:var.$text-white;
+  margin-top:7rem;
+  svg{
+    height:2rem;
+    color:var.$text-white !important;
+    cursor:pointer;
+  }
+  .footer-content{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:4rem;
+    margin-top:2rem;
+    @include mx.tablet{
+      grid-template-columns:1fr;
+    }
+  }
+  a{
+    &:hover{
+      color:lighten(var.$primary-color,30%);
+    }
+  }
+  .col{
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    font-weight:bold;
+  }
+  .--col-1{
+    font-size:3rem;
+  }
+  .--col-2{
+    font-size:2rem;
+  }
+  .footer-logo{
+    height:5rem;
+    margin-right:0;
+  }
+  .social-media{
+    display:flex;
+    gap:1.5rem;
+  }
+}

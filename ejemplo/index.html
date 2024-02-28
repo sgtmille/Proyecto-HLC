@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+
+    <link rel="stylesheet" href="assets/style/styles.css">
+</head>
+<body>
+    <main>
+        <section class="product">
+            <div class="product-imgs">
+                <img id="mainImage" src="assets/imgs/vr_glasses1.webp" alt="Product Image">
+                <ul id="imagesCarousel">
+                    <li class="selected"><img src="assets/imgs/vr_glasses1.webp" alt="Carousel Image 1"></li>
+                    <li><img src="assets/imgs/vr_glasses2.webp" alt="Carousel Image 2"></li>
+                    <li><img src="assets/imgs/vr_glasses5.webp" alt="Carousel Image 5"></li>
+                    <li><img src="assets/imgs/vr_glasses7.webp" alt="Carousel Image 7"></li>
+                </ul>
+            </div>
+
+            <div class="product-info">
+                <div class="price">
+                    <h3>$590.99</h3>
+                    <p>IVA incl. Envío gratis</p>
+                </div>
+
+                <div class="financing">
+                    <div>
+                        <h4>Financiamiento: En 12 cuotas**</h4>
+                        <a href="#">Simula tu financiamiento</a>
+                    </div>
+
+                    <p>$49.25<br><span>Mensual</span></p>
+                </div>
+            
+
+                <ul class="shipment">
+                    <li>
+                        <span></span>
+                        <div>
+                            <h4>Disponible online</h4>
+                            <p>Entrega 08/02/2024</p>
+                        </div>
+                        <p>+$0.00</p>
+                    </li>
+                    
+                    <li>
+                        <span></span>
+                        <div>
+                            <h4>Retiro en tienda</h4>
+                            <p>Selecciona tu tienda</p>
+                        </div>
+                        <p>+$0.00</p>
+                    </li>
+                </ul>
+
+                <button class="buy-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const mainImage = document.querySelector('#mainImage');
+        const imagesCarousel = document.querySelector('#imagesCarousel');
+
+        imagesCarousel.addEventListener('click', (e) => {
+            if(e.target.tagName === 'IMG') {
+                clearSelected();
+                e.target.parentElement.classList.add('selected');
+                mainImage.src = e.target.src;
+            }
+        });
+
+        const clearSelected = () => {
+            imagesCarousel.querySelectorAll('li').forEach(img => {
+                img.classList.remove('selected');
+            });
+        }
+    </script>
+</body>
+</html>

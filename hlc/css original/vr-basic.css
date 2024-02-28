@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&family=Raleway&display=swap');
+
+:root {
+    --gray: #d6d6d6;
+    --font: 'Protest Strike', sans-serif;
+    --font2: 'Raleway', sans-serif;
+    --softGray: #f5f5f5;
+    --darkGray: #9b9b9b;
+    --green: #1ca153;
+    --red: #605591;
+}
+
+.barsuperior {
+    overflow: hidden;
+    background-color: #5D6D7E;
+    opacity: 1;
+}
+
+.barsuperior a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.barsuperior a:hover {
+    background-color: #ddd;
+    color: white;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.menu1 li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.menu1 li a:hover {
+    background-color: #434343;
+}
+
+.menu1>li {
+    float: center;
+}
+
+.menu1 li ul {
+    display: none;
+    position: relative;
+}
+
+.menu1 li:hover>ul {
+    display: block;
+}
+
+.logo {
+    width: 100px;
+    height: 75px;
+    position: absolute;
+    top: -15px;
+    left: -25px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+ul {
+    list-style: none;
+}
+
+main {
+    width: 100%;
+}
+
+body {
+    font-family: var(--font2);
+    /* Modificar el tamaño del texto y tipo de letra a gusto*/
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+button {
+    font-family: var(--font);
+    /* Modificar el tamaño del texto y tipo de letra a gusto*/
+    font-size: 1.6rem;
+    cursor: pointer;
+    border: none;
+}
+
+.line1 {
+    width: 70%;
+    ;
+    margin-left: 15%;
+}
+
+.line2 {
+    width: 70%;
+    ;
+    margin-left: 15%;
+}
+
+.product {
+    padding: 3rem;
+    width: min(100%, 125rem);
+    /* Modifcar el tamaño de la imagen del producto */
+    margin: 0 auto;
+    height: 50rem;
+    display: flex;
+    gap: 5rem;
+}
+
+.product-imgs,
+.product-info {
+    width: 120%;
+    /* Modifcar tamaño del contendor de la imagen del prodcuto*/
+}
+
+.product-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-imgs #mainImage {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    /*Imagen principal la que se muestre cuando se selecciona en el carrusel*/
+    object-position: center;
+}
+
+.product-imgs #imagesCarousel {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    /*Imagenes mostradas en el carrusel con su respectivo tamaño*/
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#imagesCarousel li {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 2px solid var(--gray);
+    /*Cajas donde se encuentran las imagenes de carrusel*/
+    border-radius: 1rem;
+    background-color: white;
+}
+
+#imagesCarousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /*Imagenes del carrusel para colocarlas dentro de cada contenedor*/
+    object-position: center;
+    border-radius: 1rem;
+}
+
+#imagesCarousel li.selected {
+    border: 2px solid black;
+    /* Cuando imagen es seleccionada cambia borde a color especificado*/
+}
+
+.price h3 {
+    text-align: right;
+    font-family: var(--font);
+    font-size: 3rem;
+    /*Especificar el h3 que hace referencia al producto*/
+    font-weight: 800;
+    font-style: italic;
+}
+
+.financing {
+    width: 100%;
+    background-color: var(--softGray);
+    display: flex;
+    justify-content: space-between;
+    /*Estilo del apartado financiero "el precio y demás"*/
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.financing h4 {
+    font-weight: 600;
+    /*Especificar el h4 que hace referencia al apartado financiero*/
+}
+
+.financing a {
+    color: var(--darkGray);
+    font-size: 1.3rem;
+}
+
+.financing p,
+.shipment li>p {
+    font-weight: 600;
+    text-align: center;
+}
+
+.financing p span {
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+.shipment {
+    width: 100%;
+}
+
+.shipment li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.shipment li:nth-child(1) {
+    margin-top: 2.5rem;
+    padding: 2rem 0 1rem 0;
+    border-top: 1px solid var(--gray);
+}
+
+.shipment li:nth-child(2) {
+    padding: 1rem 0 2rem 0;
+}
+
+.shipment li>div {
+    width: 80%;
+}
+
+.shipment li span {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.shipment li h4 {
+    font-size: 1.4rem;
+}
+
+.shipment li:nth-child(1) span {
+    background-color: var(--green);
+}
+
+.shipment li:nth-child(2) span {
+    background-color: var(--darkGray);
+}
+
+.shipment li:nth-child(1) h4 {
+    color: var(--green);
+}
+
+.shipment li:nth-child(2) h4 {
+    color: var(--darkGray);
+}
+
+.shipment li h4 {
+    font-weight: 600;
+}
+
+.buy-btn {
+    width: 100%;
+    padding: 0.75rem 0;
+    background-color: #5D6D7E;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+@media (width < 1200px) {
+    .product {
+        gap: 2rem;
+    }
+}
+
+@media (width < 880px) {
+    .product {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .product-imgs,
+    .product-info {
+        width: min(90%, 70rem);
+    }
+}
+
+/*.tabla {
+    border:1px solid black ;
+    border-collapse: collapse;
+    margin: auto;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #EAEDED
+}
+*/
+
+td {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.tr1 {
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: #5D6D7E;
+    color: white;
+    font-weight: bold;
+}
+
+/*              Pantalla
+                Paneles duales LCD 7,3 cm
+                Resolución
+                2448 x 2448 píxeles por ojo (4896 x 2448 píxeles combinados)
+                Frecuencia de actualización
+                90 Hz
+                Campo de visión
+                Hasta 120 grados
+                Audio
+                Micrófonos duales con cancelación de eco
+                Diseño de 2x altavoces direccionales patentados con doble transductor
+                Modo de privacidad
+                Conexión de salida de audio de 3,5 mm con alta resolución certificada
+                Entradas
+                Micrófonos duales integrados
+                Botón de visor
+                Conexiones
+                2x puertos periféricos de USB 3.2 Gen-1 Tipo C
+                (El puerto externo USB-C soporta USB OTG)
+                Bluetooth 5.2 + BLE
+                Wi-Fi 6 + 6E 1
+                1.La compatibilidad con Wi-Fi 6E depende del país. Para obtener más detalles, consulte este enlace
+                Sensores
+                4x cámaras de seguimiento
+                Sensor G
+                Giroscopio
+                Sensor de proximidad
+                Ergonomía
+                Un equilibro perfecto del peso permite un uso cómodo en sesiones largas
+                El módulo de batería con una curvatura ergonómica montado en la parte posterior actúa como
+                contrapeso
+                Encaje delantero fijado magnéticamente y almohadilla trasera con borde de cuero PU fácil de limpiar
+                La interfaz facial de 150 mm de ancho permite usar gafas anchas
+                Ajuste para la comodidad ocular que soporta una gama de DIP de 57 mm a 72 mm
+                Diseño de desbloqueo rápido patentado de la cinta de la cabeza con un dial de ajuste fácil de usar
+                Batería
+                Batería 26,6 Wh: extraíble e intercambiable
+                Ligera y recargable con rapidez, con diseño de gel de polímero de litio
+                Diseñada y moldeada con una curva ergonómica
+                Rastreo
+                Rastreo VIVE de dentro hacia fuera
+                Se recomienda un espacio de juego de hasta 7x7 m
+                Especificaciones del controlador
+                Sensores
+                Sensores Hall en los botones de agarre y disparador
+                Sensores capacitivos en el área de reposo del pulgar, disparador y joystick
+                Sensor G
+                Giroscopio
+                Entrada
+                Botón de agarre ergonómico
+                Botón de disparador analógico
+                Botones AB / XY
+                Botones de menú / Sistema
+                Joystick
+                Batería
+                Hasta 15 horas de vida de la batería
+                Batería recargable integrada (se carga mediante USB-C)
+                *Todos los resultados de uso de las baterías varían. La vida útil de la batería y los ciclos de
+                carga varían con el uso
+                Requisitos del área de seguimiento
+                En pie / Sentado
+                Ambos disponibles
+                Escala de habitación
+                Se recomienda un área de juego de hasta 7m x 7m
+                El área mínima de juego es de 1.5m x 1.5m (de pie)
+                .nomprod {
+*/

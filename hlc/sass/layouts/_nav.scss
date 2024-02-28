@@ -1,0 +1,120 @@
+@use "globales/variables" as var;
+@use "globales/mixins" as mx;
+nav{
+  display:flex;
+  justify-content:space-between;
+  background-color:var.$primary-color;
+  align-items:center;
+  padding-left:2rem;
+  color: var.$text-white;
+  font-weight:bold;
+  @include mx.tablet(){
+    .menu{
+      display:none;
+    }
+  }
+  a {
+    display:inline-block;
+    padding:1.4rem 1.6rem;
+    &:hover{
+      background-color:lighten(var.$black,30%);
+      color: var.$text-white;
+    }
+  }
+  .logo{
+    height:3.5rem;
+  }
+  .sub-menu-container{
+    display:inline-block;
+    svg{
+      height:1.5rem;
+      margin-left:1rem;
+      color:var.$text-white !important;
+    }
+  }
+  .hover-list{
+    &:hover{
+      .sub-menu{
+        position:absolute;
+        display:flex;
+      }
+    }
+  }
+  .sub-menu{
+    display:none;
+    flex-direction:column;
+    background-color:var.$primary-color;
+  }
+
+}
+.--mobile-nav{
+  @include mx.tablet(){
+    .menu{
+      position:fixed;
+      overflow:auto;
+      z-index:4;
+      top:0;
+      bottom:0;
+      right:0;
+      width:100%;
+      height:100%;
+      background-color:transparentize(#000,0.2);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      a{
+        font-size:3.2rem;
+        width:100%;
+        text-align:center;
+      }
+    }
+    .sub-menu{
+      background:transparent;
+      border:1px solid var.$bg-white;
+      a{
+        font-size:2.4rem;
+        padding-left:2rem;
+      }
+    }
+    .active{
+      display:flex;
+    }
+  }
+}
+header{
+  overflow:hidden;
+  height:100vh;
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  h1{
+    font-size:9.2rem;
+    @media screen and (max-width:550px){
+      font-size:6rem;
+    }
+  }
+  .bg{
+    position: absolute;
+    object-fit:cover;
+    object-position:center;
+  }
+  .content{
+    position: absolute;
+    color:var.$text-white;
+    text-align:center;
+  }
+  .--btn-header{
+    margin-top:6rem;
+    background:none;
+    border:1px solid var.$text-white;
+    padding:1rem 2rem;
+    font-size:3rem;
+    color:var.$text-white;
+    transition:all .3s ease-in-out;
+    &:hover{
+      transform:scale(1.1);
+    }
+  }
+}
