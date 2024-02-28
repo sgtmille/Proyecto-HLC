@@ -1,17 +1,27 @@
 <?php
-include "../router.php";
-$router = new Router();
+require "../vendor/autoload.php";
+use Pecee\SimpleRouter\SimpleRouter as Router;
+use Pecee\Http\Request;
+include "../backend/clases/db.php";
+include "../backend/includes/functions.php";
 
-$router->get("/","home");
-$router->get("/subs","pages/suscripciones");
-$router->get("/about-us","pages/about-us");
-$router->get("/comprar","pages/menu-compra");
-$router->get("/registro","pages/registro");
-$router->get("/login","pages/login");
+Router::get('/', function() {
+  render("home");
+});
+Router::get('/suscripciones', function() {
+  render("pages/suscripciones");
+});
+Router::get('/about-us', function() {
+  render("pages/about-us");
+});
+Router::get('/login', function() {
+  render("pages/login",true);
+});
+Router::get('/comprar', function() {
+  render("pages/menu-compra");
+});
 
-$router->get("/products/guantes","products/guantes");
-$router->get("/products/traje","products/traje");
-$router->get("/products/vr-basic","products/vr-basic");
-$router->get("/products/vr-pro","products/vr-pro");
-
-$router->executeUrl();
+Router::error(function(Request $request, \Exception $exception) {
+  if($exception->getCode()) render("404");   
+});
+Router::start();

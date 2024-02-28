@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/assets/css/app.css">
-  <link rel="shortcut icon" href="/public/assets/imgs/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="shortcut icon" href="/assets/imgs/logo.ico" type="image/x-icon">
   <title>Inicio de Sesion</title>
 </head>
 <body class="form-page">
   <p class="prev-page" id="prev-page">Atrás</p>
   <div class="form-container --form-login">
-    <form action="/public/login_con_sesion/logica/loguear.php" method="POST">
+    <form action="/login_con_sesion/logica/loguear.php" method="POST">
       <h2 class="form-title">Iniciar Sesión</h2>
       <div class="form-content">
         <div>
@@ -32,6 +32,6 @@
       </div>
     </form><!-- form -->
   </div>
-  <script src="/public/assets/js/main.js" type="module"></script>
+  <script src="/assets/js/main.js" type="module"></script>
 </body>
 </html>
