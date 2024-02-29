@@ -13,6 +13,11 @@ nav{
       display:none;
     }
   }
+  .left{
+    display:flex;
+    align-items:center;
+    gap:1.6rem;
+  }
   a {
     display:inline-block;
     padding:1.4rem 1.6rem;

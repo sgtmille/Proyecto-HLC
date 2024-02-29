@@ -2,6 +2,14 @@
 class db{
   public $db;
   public $log;
+
+  public function log(string $text){
+    $timestamp = new DateTime(null, new DateTimeZone('America/Lima'));
+    $time = $timestamp->format('Y-m-d H:i:s');
+    $filename ="../backend/log.txt";
+    $textData = $text."  --  $time\n";
+    file_put_contents($filename,$textData."\n", FILE_APPEND);
+  }
   function __construct($table){
     try{
       $this->db = new mysqli("localhost","root","root",$table);
@@ -42,47 +50,45 @@ class db{
     }
   }
   public function insert($table, $data,$all=false,$fileField=false){
-    if(!$this->existTable($table)){
-      sendLog("No existe la tabla");
-      return false;
-    };
-
-    if($fileField){
-      $ruta = $fileField["dir"];
-      $name = $fileField["name"];
-      $file = $_FILES["$name"]; 
-    }
-    $columns = $this->getColumns($table);
-    $PrimaryKey = $this->getPrimaryKey("",$columns);
-    if(!$all){
-      unset($columns[$PrimaryKey["name"]]);
-    }
-
-    $keysCol = array_keys($columns);
-    $keysData = array_keys($data);
-    foreach($keysData as $key){
-      if(!in_array($key,$keysCol)){
-        sendLog("Los campos no concuerdan");
-        return false;
+    try{
+      if(!$this->existTable($table)) throw new Exception("No existe la tabla");
+  
+      if($fileField){
+        $ruta = $fileField["dest"];
       }
+      $columns = $this->getColumns($table);
+      $PrimaryKey = $this->getPrimaryKey("",$columns);
+      if(!$all){
+        unset($columns[$PrimaryKey["name"]]);
+      }
+  
+      $keysCol = array_keys($columns);
+      $keysData = array_keys($data);
+      foreach($keysData as $key){
+        if(!in_array($key,$keysCol)) throw new Exception("Los campos no concuerdan");
+      }
+      $query = "INSERT INTO $table (";
+      $values = "";
+      foreach($columns as $key=>$value){
+        $query.=$key.",";
+        $dataVal = $data[$key];
+        $values.= gettype($value) == "string" ? "'$dataVal',": "$dataVal,";
+      }
+      $query = trim($query,",");
+      $query.= ") VALUES (".trim($values,",");
+      $query.=")";
+      
+    }catch(Exception $e){
+      $this->log($e->getMessage());
+      return false;
     }
-    $query = "INSERT INTO $table (";
-    $values = "";
-    foreach($columns as $key=>$value){
-      $query.=$key.",";
-      $dataVal = $data[$key];
-      $values.= gettype($value) == "string" ? "'$dataVal',": "$dataVal,";
-    }
-    $query = trim($query,",");
-    $query.= ") VALUES (".trim($values,",");
-    $query.=")";
     try{
       $done = $this->db->query($query) ? true : false;
       $this->db->close();
       return $done;
     }catch(Exception $e){
       $msgErr = "Error de la query: $query\n".$e->getMessage();
-      sendLog($msgErr);
+      $this->log($msgErr);
       return false;
     }
   }
@@ -120,42 +126,56 @@ class db{
     return $obj;
   }  
   public function update($table,$id,$data){
-    if(!$this->existTable($table)) return "No existe la tabla";
-
-    $columns = $this->getColumns($table);
-    $PrimaryKey = $this->getPrimaryKey("",$columns);
-    unset($columns[$PrimaryKey["name"]]);
-
-    $query = "UPDATE $table SET ";
-    foreach($columns as $key=>$value){
-      $dataVal = $data[$key];
-      $value = gettype($value)=="string" ? "'$dataVal'" : "$dataVal" ;
-      $query.="$key=$value,";
+    try{
+      if(!$this->existTable($table)) throw new Exception("No existe la tabla");
+  
+      $columns = $this->getColumns($table);
+      $PrimaryKey = $this->getPrimaryKey("",$columns);
+      unset($columns[$PrimaryKey["name"]]);
+  
+      $query = "UPDATE $table SET ";
+      foreach($columns as $key=>$value){
+        $dataVal = $data[$key];
+        $value = gettype($value)=="string" ? "'$dataVal'" : "$dataVal" ;
+        $query.="$key=$value,";
+      }
+      $query = trim($query,",");
+      $key = $PrimaryKey["name"];
+      $id = $PrimaryKey["type"] == "StrKey" ? "'$id'":"$id";
+      $query.= " WHERE $key=$id";      
+    }catch(Exception $e){
+      $this->log($e->getMessage());
+      return false;
     }
-    $query = trim($query,",");
-    $key = $PrimaryKey["name"];
-    $id = $PrimaryKey["type"] == "StrKey" ? "'$id'":"$id";
-    $query.= " WHERE $key=$id";
     try{
       $done = $this->db->query($query) ? true : false;
       $this->db->close();
       return $done;
     }catch(Exception $e){
-      return $e->getMessage();
+      $msgErr = "Error de la query: $query\n".$e->getMessage();
+      $this->log($msgErr);
+      return false;
     }
   }
   public function delete($table,$id){
-    if(!$this->existTable($table)) return "No existe la tabla";
-    $PrimaryKey = $this->getPrimaryKey($table);
-    $key = $PrimaryKey["name"];
-    $id = $PrimaryKey["type"] == "StrKey"? "'$id'": "$id";
-    $query = "DELETE FROM $table WHERE $key=$id";
+    try{
+      if(!$this->existTable($table)) throw new Exception("No existe la tabla");
+      $PrimaryKey = $this->getPrimaryKey($table);
+      $key = $PrimaryKey["name"];
+      $id = $PrimaryKey["type"] == "StrKey"? "'$id'": "$id";
+      $query = "DELETE FROM $table WHERE $key=$id";
+    }catch(Exception $e){
+      $this->log($e->getMessage());
+      return false;
+    }
     try{
       $done = $this->db->query($query) ? true : false;
       $this->db->close();
       return $done;
     }catch(Exception $e){
-      return $e->getMessage();
+      $msgErr = "Error de la query: $query\n".$e->getMessage();
+      $this->log($msgErr);
+      return false;
     }
   }
 }

@@ -419,6 +419,11 @@ nav {
     display: none;
   }
 }
+nav .left {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
 nav a {
   display: inline-block;
   padding: 1.4rem 1.6rem;
@@ -673,7 +678,7 @@ form .password-input input {
 .--form-login .box-container {
   padding: 0 2rem;
 }
-.--form-login input {
+.--form-login input[type=text], .--form-login input[type=password] {
   background-color: #fff;
   color: #000;
 }
@@ -691,7 +696,7 @@ form .password-input input {
     gap: 2.4rem;
   }
 }
-.--form-login button {
+.--form-login .btn {
   width: 100%;
   max-width: 24rem;
   border-radius: 0.4rem;
@@ -699,6 +704,65 @@ form .password-input input {
 .--form-login a {
   color: #A9C6EF;
   font-weight: normal;
+}
+.--form-login .password-input {
+  background-color: #fff;
+}
+
+.alert {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.alert button {
+  display: inline-block;
+}
+.alert .title {
+  color: #fff;
+  flex-grow: 1;
+}
+.alert .text {
+  color: #e6e6e6;
+  font-size: 1.6rem;
+}
+
+.alert__content {
+  position: relative;
+  max-width: 30rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: 0px 5px 10px #000;
+  padding: 2rem;
+  background-color: #5D6D7E;
+}
+.alert__content .header {
+  width: 100%;
+  display: flex;
+}
+.alert__content .btn-close {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.4rem;
+}
+.alert__content .btn-close svg {
+  height: 2.4rem;
+  color: #fff;
+}
+.alert__content button {
+  background-color: #272e35;
 }
 
 .container {

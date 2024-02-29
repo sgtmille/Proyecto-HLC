@@ -1,0 +1,57 @@
+@use "globales/variables" as var;
+.alert{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem;
+  button{
+    display:inline-block
+  }
+  .title{
+    color:var.$text-white;
+    flex-grow:1;
+  }
+  .text{
+    color:darken(var.$text-white,10%);
+    font-size:1.6rem;
+  }
+}
+
+.alert__content{
+  position:relative;
+  max-width:30rem;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  align-items:center;
+  box-shadow:0px 5px 10px #000;
+  padding:2rem;
+  background-color:var.$primary-color;
+  .header{
+    width:100%;
+    display:flex;
+  }
+  .btn-close{
+    display:flex;
+    align-content: center;
+    justify-content:center;
+    position: absolute;
+    right:0;
+    top:0;
+    padding:0.4rem
+  }
+  .btn-close svg{
+    height:2.4rem;
+    color:var.$text-white;
+  }
+  button{
+    background-color:darken(var.$primary-color,25%);
+  }
+}
+

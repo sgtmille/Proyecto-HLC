@@ -101,7 +101,7 @@ form{
   .box-container{
     padding:0 2rem;
   }
-  input{
+  input[type="text"],input[type="password"]{
     background-color:var.$text-white;
     color:var.$black;
   }
@@ -117,7 +117,7 @@ form{
       gap:2.4rem;
     }
   }
-  button{
+  .btn{
     width:100%;
     max-width:24rem;
     border-radius:.4rem;
@@ -125,5 +125,8 @@ form{
   a{
     color:#A9C6EF;
     font-weight:normal;
+  }
+  .password-input{
+    background-color:var.$text-white;
   }
 }

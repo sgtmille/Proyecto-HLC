@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="/assets/imgs/logo.ico" type="image/x-icon">
   <title>Página de Registro</title>
 </head>
-<body class="form-page" id="form-login">
+<body class="form-page" id="form-create">
   <p class="prev-page" id="prev-page">Atrás</p>
   <div class="form-container">
     <form action="">
@@ -55,6 +55,18 @@
       <button type="submit">Crear</button>
     </form>
   </div>
+  <template id="template-alert">
+    <div class="alert">
+      <div class="alert__content">
+        <div class="btn-close --no-margin --no-padding">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentcolor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+        </div>
+          <h2 class="title --no-margin">Importante!!!</h2>
+        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima porro culpa perspiciatis sit nam exercitationem officiis, sapiente perferendis at dolore fugit voluptatum velit quisquam necessitatibus reiciendis labore ab suscipit eveniet!</p>
+        <button class="cb">Aceptar</button>
+      </div>
+    </div>
+  </template>
   <script src="/assets/js/form.js" type="module"></script>
 </body>
 </html>

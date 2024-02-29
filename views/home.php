@@ -4,11 +4,11 @@
       <div class="center">
         <div class="product">
           <h3>Dreamtech VR Basic</h3>
-          <img src="assets/imgs/VR Basic/gafas-vrbasic-front-sinmando.png" class="showFullscreen">
+          <img src="assets/imgs/vr-basic/gafas-vrbasic-front-sinmando.png" class="showFullscreen">
         </div><!-- product -->
         <div class="product">
           <h3>Dreamtech VR Pro</h3>
-          <img src="assets/imgs/VR Pro/gafas-vrpro-side.png" class="showFullscreen">
+          <img src="assets/imgs/vr-pro/gafas-vrpro-side.png" class="showFullscreen">
         </div><!-- product -->
       </div><!-- center -->
       <p>Somos una empresa dedicada a la venta de gafas de realidad virtual, tanto para usuarios básicos como para  profesionales. Ofrecemos una amplia gama de productos, desde gafas VR básicas a precios accesibles, hasta gafas VR Pro de alta gama con las últimas tecnologías.
@@ -20,11 +20,11 @@
     <div class="center">
       <div class="product">
         <h3>Dreamtech Suit</h3>
-        <img src="assets/imgs/VR Suit/suit-side.png" class="showFullscreen">
+        <img src="assets/imgs/vr-suit/suit-side.png" class="showFullscreen">
       </div>
       <div class="product">
       <h3>Dreamtech Gloves</h3>
-      <img src="assets/imgs/VR Gloves/glove.png" class="showFullscreen">
+      <img src="assets/imgs/vr-gloves/glove.png" class="showFullscreen">
     </div><!-- product -->
     </div>
     <div>
