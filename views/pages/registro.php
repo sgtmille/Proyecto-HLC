@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/assets/css/app.css">
-  <link rel="shortcut icon" href="/public/assets/imgs/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="shortcut icon" href="/assets/imgs/logo.ico" type="image/x-icon">
   <title>Página de Registro</title>
 </head>
-<body class="form-page">
+<body class="form-page" id="form-login">
   <p class="prev-page" id="prev-page">Atrás</p>
   <div class="form-container">
     <form action="">
@@ -31,8 +31,13 @@
           <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]{1}" minlength="9" maxlength="9" title="Debe poner 8 números y una letra" required />
         </div>
         <div class="form-group">
-          <label for="teléfono">Contraseña</label>
-          <input type="teléfono" id="teléfono" name="teléfono" pattern=".{9,}"title="Introduce un número de teléfono válido"  minlength="9" maxlength="9" required />
+          <label for="password">Password</label>
+          <div class="password-input">
+            <input type="password" name="password" pattern=".{9,}"title="Introduce un número de teléfono válido"  minlength="9" maxlength="9" required />
+            <div class="btn-password">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentcolor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/></svg>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label for="compra">Pais</label>
@@ -50,6 +55,6 @@
       <button type="submit">Crear</button>
     </form>
   </div>
-  <script src="/public/assets/js/main.js" type="module"></script>
+  <script src="/assets/js/form.js" type="module"></script>
 </body>
 </html>

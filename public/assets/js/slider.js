@@ -1,4 +1,4 @@
-export const slider = (d,imgsForCarrousel)=>{
+export const slider = (imgsForCarrousel,d=document)=>{
   const $carouselImg = d.getElementById("carousel-img"),
     $prev = d.getElementById("prev"),
     $next = d.getElementById("next"),

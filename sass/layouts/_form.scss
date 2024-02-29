@@ -5,6 +5,7 @@
   align-items:center;
   justify-content:center;
   width:100%;
+  
 }
 form{
   background-color:var.$black;
@@ -53,6 +54,26 @@ form{
   svg{
     color:var.$text-white !important;
   }
+  .btn-password{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .btn-password svg{
+    color:darken(var.$bg-white,50%) !important;
+    height:2rem;
+  }
+  .password-input{
+    display:flex;
+    align-items:center;
+    padding-right:1.2rem;
+    background-color:var.$form-box;
+    border-radius:1.2rem;
+    input{
+      background:none;
+    }
+  }
+
 }
 .--form-login{
   form{

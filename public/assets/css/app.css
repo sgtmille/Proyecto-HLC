@@ -626,6 +626,25 @@ form button {
 form svg {
   color: #fff !important;
 }
+form .btn-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .btn-password svg {
+  color: #6d6d6d !important;
+  height: 2rem;
+}
+form .password-input {
+  display: flex;
+  align-items: center;
+  padding-right: 1.2rem;
+  background-color: #313131;
+  border-radius: 1.2rem;
+}
+form .password-input input {
+  background: none;
+}
 
 .--form-login form {
   max-width: 60rem;

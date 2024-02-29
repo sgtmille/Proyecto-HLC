@@ -35,3 +35,11 @@ function render($view,$onlyOne=false){
     include_once $rootPath."/views/$view.php";
   }
 }
+
+function sendLog(string $text){
+  $timestamp = new DateTime(null, new DateTimeZone('America/Lima'));
+  $time = $timestamp->format('Y-m-d H:i:s');
+  $filename = "../log.txt";
+  $textData = $text."  --  $time\n";
+  file_put_contents($filename,$textData."\n", FILE_APPEND);
+}

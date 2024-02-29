@@ -1,4 +1,4 @@
-export const showFullscreenImg = (d,$fullscreenContainer)=>{
+export const showFullscreenImg = ($fullscreenContainer,d=document)=>{
   const $fullscreenImg = d.getElementById("fullscreen-img"),
     $btnClose = d.getElementById("close-fullscreen-container")
 

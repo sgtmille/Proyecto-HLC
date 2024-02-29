@@ -27,7 +27,7 @@
         </div>
       </div><!-- form-content -->
       <div class="form-options">
-        <a class="text-primary-color" href="/public/views/registro.php">Crear Cuenta</a>
+        <a class="text-primary-color" href="/registro">Crear Cuenta</a>
         <button type="submit">Iniciar Sesion</button>
       </div>
     </form><!-- form -->
