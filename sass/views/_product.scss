@@ -1,11 +1,19 @@
 @use "globales/variables" as var;
 @use "globales/mixins" as mx;
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,600,700,800,900);
 .product-page{
   h1{
     margin-top:3rem;
     text-align:left;
   }
 }
+$gray: #d6d6d6;
+$font: 'Poppins', sans-serif;
+$softGray: #f5f5f5;
+$darkGray : #9b9b9b;
+$green: #1ca153;
+$red: #df0b0b;
+
 .product-page-container{
   max-width:100%;
   display:flex;
@@ -24,95 +32,194 @@
     padding-right:0;
     align-items:center;
   }
-  svg{
-    height:3rem;
-    color:darken(var.$bg-white,30%) !important;
-  }
-  img{
-    max-width:100%;
-    height:35rem;
-    @include mx.desktop{
-      max-width:100%;
-      max-height:35rem;
-      height:100%;
-    }
-  }
-  .img-carousel{
-    max-width:57rem;
-    width:100%;
-    background-color:transparentize(var.$bg-white,0.5);
-    padding:1.6rem;
-  }
-  .img-carousel-btns{
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    align-items:center;
-    gap:0.8rem;
-    &.one{
-      grid-template-columns:1fr;
-    }
-  }
-  .img-carousel-btn{
-    cursor:pointer;
-  }
-  .img-carousel-indexs{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:0.8rem;
-    margin-top:0.8rem;
-  }
-  .circle{
-    z-index:1;
+  button{
+    font-family: $font;
+    font-size: 1.6rem;
     cursor: pointer;
-    background-color:darken(var.$bg-white,15%);
+    border: none;
   }
-  .active{
-    background-color:darken(var.$bg-white,40%) ;
+
+  .product{
+      padding: 3rem;
+      width: min(100%, 125rem);
+      margin: 0 auto;
+      height: 50rem;
+      display: flex;
+      gap: 5rem;
   }
-}
-.product-status{
-  font-family:var.$font-3;
-  font-weight:600;
-  width:100%;
-  max-width:57rem;
-  .product-status-price{
-    font-family:var.$font-2;
-    font-style:italic;
-    padding-bottom:2rem;
-    border-bottom:1px solid darken(var.$bg-white,10%);
-    text-align:right;
+
+  .product-imgs, .product-info{
+      width: 50%;
   }
-  .circle{
-    @include mx.resize(1rem);
+
+  .product-imgs{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
   }
-  .product-status-items{
-    display:flex;
-    flex-direction:column;
-    gap:1.2rem;
-    margin-top:2rem;
+
+  .product-imgs #mainImage{
+      width: 100%;
+      height: 80%;
+      object-fit: contain;
+      object-position: center;
   }
-  .product-status-item{
-    display:flex;
-    align-items:baseline;
+
+  .product-imgs #imagesCarousel{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
   }
-  .product-status-item-info{
-    padding-left:2rem;
-    flex-grow:1;
+
+  #imagesCarousel li{
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border: 2px solid $gray;
+      border-radius: 1rem;
+      background-color: white;
   }
-  h4,p{
-    font-size:1.4rem;
+
+  #imagesCarousel img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 1rem;
   }
-  .product-status-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:.4rem;
-    margin-top:2rem;
-    padding:.4rem 1.6rem;
+
+  #imagesCarousel li.selected{
+      border: 2px solid black;
   }
-  svg{
-    height:1.6rem;
-    color:var.$text-white !important;
+
+  .price h3, .price p{
+      text-align: right;
+  }
+
+  .price h3{
+      font-size: 3rem;
+      font-weight: 800;
+      font-style: italic;
+  }
+
+  .price p{
+      font-size: 1.3rem;
+      font-weight: normal;
+      text-decoration: underline;
+      margin-top: -1rem;
+  }
+
+  .financing{
+      width: 100%;
+      background-color: $softGray;
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+  }
+
+  .financing h4{
+      font-weight: 600;
+  }
+
+  .financing a{
+      color: $darkGray;
+      font-size: 1.3rem;
+  }
+
+  .financing p, .shipment li > p{
+      font-weight: 600;
+      text-align: center;
+  }
+
+  .financing p span{
+      font-weight: normal;
+      font-size: 1.3rem;
+  }
+
+  .shipment{
+      width: 100%;
+  }
+
+  .shipment li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+  }
+
+  .shipment li:nth-child(1){
+      margin-top: 2.5rem;
+      padding: 2rem 0 1rem 0;
+      border-top: 1px solid $gray;
+  }
+
+  .shipment li:nth-child(2){
+      padding: 1rem 0 2rem 0;
+  }
+
+  .shipment li > div{
+      width: 80%;
+  }
+
+  .shipment li span{
+      height: 1rem;
+      width: 1rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+  }
+
+  .shipment li h4{
+      font-size: 1.4rem;
+  }
+
+  .shipment li:nth-child(1) span{
+      background-color: $green;
+  }
+
+  .shipment li:nth-child(2) span{
+      background-color: $darkGray;
+  }
+
+  .shipment li:nth-child(1) h4{
+      color: $green;
+  }
+
+  .shipment li:nth-child(2) h4{
+      color: $darkGray;
+  }
+
+  .shipment li h4{
+      font-weight: 600;
+  }
+
+  .buy-btn{
+      width: 100%;
+      padding: 0.75rem 0;
+      background-color: $red;
+      color: white;
+      border-radius: 0.5rem;
+  }
+
+  @media (width < 1200px) {
+      .product{
+          gap: 2rem;
+      }
+  }
+
+  @media (width < 880px) {
+      .product{
+          flex-direction: column;
+          height: auto;
+          gap: 2rem;
+          align-items: center;
+      }
+      .product-imgs, .product-info{
+          width: min(90%, 70rem);
+      }
   }
 }
