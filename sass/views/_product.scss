@@ -15,211 +15,194 @@ $green: #1ca153;
 $red: #df0b0b;
 
 .product-page-container{
-  max-width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:start;
-  margin-top:3rem;
-  margin-bottom:4rem;
-  padding-left:6rem;
-  padding-right:2rem;
-  padding-bottom:5.6rem;
-  border-bottom:2px solid var.$primary-color;
-  gap:3rem;
-  @include mx.desktop{
-    flex-direction:column;
-    padding-left:0;
-    padding-right:0;
-    align-items:center;
+  padding: 3rem;
+  max-width:125rem;
+  width:100%;
+  margin: 0 auto;
+  height: 50rem;
+  display: flex;
+  gap: 5rem;
+  @media screen and (max-width:800px) {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media screen and (max-width:1200px) {
+    gap: 2rem;
   }
   button{
     font-family: $font;
     font-size: 1.6rem;
     cursor: pointer;
     border: none;
-  }
+}
 
-  .product{
-      padding: 3rem;
-      width: min(100%, 125rem);
-      margin: 0 auto;
-      height: 50rem;
-      display: flex;
-      gap: 5rem;
-  }
+.product-imgs, .product-info{
+    width: 50%;
+}
 
-  .product-imgs, .product-info{
-      width: 50%;
-  }
+.product-imgs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-  .product-imgs{
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-  }
+.product-imgs #mainImage{
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    object-position: center;
+}
 
-  .product-imgs #mainImage{
-      width: 100%;
-      height: 80%;
-      object-fit: contain;
-      object-position: center;
-  }
+.product-imgs #imagesCarousel{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
 
-  .product-imgs #imagesCarousel{
-      width: 100%;
-      height: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-  }
+#imagesCarousel li{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 2px solid $gray;
+    border-radius: 1rem;
+    background-color: white;
+}
 
-  #imagesCarousel li{
-      width: 100%;
-      height: 100%;
-      cursor: pointer;
-      border: 2px solid $gray;
-      border-radius: 1rem;
-      background-color: white;
-  }
+#imagesCarousel img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1rem;
+}
 
-  #imagesCarousel img{
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 1rem;
-  }
+#imagesCarousel li.selected{
+    border: 2px solid black;
+}
 
-  #imagesCarousel li.selected{
-      border: 2px solid black;
-  }
+.price h3, .price p{
+    text-align: right;
+}
 
-  .price h3, .price p{
-      text-align: right;
-  }
+.price h3{
+    font-size: 3rem;
+    font-weight: 800;
+    font-style: italic;
+}
 
-  .price h3{
-      font-size: 3rem;
-      font-weight: 800;
-      font-style: italic;
-  }
+.price p{
+    font-size: 1.3rem;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-top: -1rem;
+}
 
-  .price p{
-      font-size: 1.3rem;
-      font-weight: normal;
-      text-decoration: underline;
-      margin-top: -1rem;
-  }
+.financing{
+    width: 100%;
+    background-color: $softGray;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
 
-  .financing{
-      width: 100%;
-      background-color: $softGray;
-      display: flex;
-      justify-content: space-between;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      margin: 1rem 0;
-  }
+.financing h4{
+    font-weight: 600;
+}
 
-  .financing h4{
-      font-weight: 600;
-  }
+.financing a{
+    color: $darkGray;
+    font-size: 1.3rem;
+}
 
-  .financing a{
-      color: $darkGray;
-      font-size: 1.3rem;
-  }
+.financing p, .shipment li > p{
+    font-weight: 600;
+    text-align: center;
+}
 
-  .financing p, .shipment li > p{
-      font-weight: 600;
-      text-align: center;
-  }
+.financing p span{
+    font-weight: normal;
+    font-size: 1.3rem;
+}
 
-  .financing p span{
-      font-weight: normal;
-      font-size: 1.3rem;
-  }
+.shipment{
+    width: 100%;
+}
 
-  .shipment{
-      width: 100%;
-  }
+.shipment li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
 
-  .shipment li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-  }
+.shipment li:nth-child(1){
+    margin-top: 2.5rem;
+    padding: 2rem 0 1rem 0;
+    border-top: 1px solid $gray;
+}
 
-  .shipment li:nth-child(1){
-      margin-top: 2.5rem;
-      padding: 2rem 0 1rem 0;
-      border-top: 1px solid $gray;
-  }
+.shipment li:nth-child(2){
+    padding: 1rem 0 2rem 0;
+}
 
-  .shipment li:nth-child(2){
-      padding: 1rem 0 2rem 0;
-  }
+.shipment li > div{
+    width: 80%;
+}
 
-  .shipment li > div{
-      width: 80%;
-  }
+.shipment li span{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
 
-  .shipment li span{
-      height: 1rem;
-      width: 1rem;
-      border-radius: 50%;
-      margin-right: 0.5rem;
-  }
+.shipment li h4{
+    font-size: 1.4rem;
+}
 
-  .shipment li h4{
-      font-size: 1.4rem;
-  }
+.shipment li:nth-child(1) span{
+    background-color: $green;
+}
 
-  .shipment li:nth-child(1) span{
-      background-color: $green;
-  }
+.shipment li:nth-child(2) span{
+    background-color: $darkGray;
+}
 
-  .shipment li:nth-child(2) span{
-      background-color: $darkGray;
-  }
+.shipment li:nth-child(1) h4{
+    color: $green;
+}
 
-  .shipment li:nth-child(1) h4{
-      color: $green;
-  }
+.shipment li:nth-child(2) h4{
+    color: $darkGray;
+}
 
-  .shipment li:nth-child(2) h4{
-      color: $darkGray;
-  }
+.shipment li h4{
+    font-weight: 600;
+}
+.buy-btn{
+    width: 100%;
+    padding: 0.75rem 0;
+    background-color: $red;
+    color: white;
+    border-radius: 0.5rem;
+}
 
-  .shipment li h4{
-      font-weight: 600;
-  }
-
-  .buy-btn{
-      width: 100%;
-      padding: 0.75rem 0;
-      background-color: $red;
-      color: white;
-      border-radius: 0.5rem;
-  }
-
-  @media (width < 1200px) {
-      .product{
-          gap: 2rem;
-      }
-  }
-
-  @media (width < 880px) {
-      .product{
-          flex-direction: column;
-          height: auto;
-          gap: 2rem;
-          align-items: center;
-      }
-      .product-imgs, .product-info{
-          width: min(90%, 70rem);
-      }
+  @media screen and (max-width:800px) {
+    .product-page-container{
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+        align-items: center;
+    }
+    .product-imgs, .product-info{
+        width: min(90%, 70rem);
+    }
   }
 }

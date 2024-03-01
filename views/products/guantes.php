@@ -3,12 +3,7 @@
     <section class="product-page-container">
       <div class="product-imgs">
         <img id="mainImage"alt="Product Image">
-        <ul id="imagesCarousel">
-          <li class="selected"><imgalt="Carousel Image 1"></li>
-          <li><img></li>
-          <li><img></li>
-          <li><img></li>
-        </ul>
+        <ul id="imagesCarousel"></ul>
       </div><!-- product-imgs -->
       <div class="product-info">
         <div class="price">
@@ -48,6 +43,9 @@
     </section><!-- product-page-container -->
   </main><!-- product-page -->
   <section class="container text-container">
+    <br><br><br>
+    <div class="hr"></div>
+    <br><br><br>
     <div class="line">
       <p class="bold">Pantalla:</p>
       <p>Paneles duales LCD 7,3 cm</p>
@@ -99,7 +97,6 @@
   </section><!-- text-container -->
 
 <script>
-  let imgs = false;
   fetch("/imgs/vr-gloves")
   .then(res=>res.ok? res.json(): Promise.reject(res))
   .then(data=>imgs=data)
