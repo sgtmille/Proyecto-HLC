@@ -43,9 +43,9 @@
     </section><!-- product-page-container -->
   </main><!-- product-page -->
   <section class="container text-container">
-    <br><br><br>
+    <br><br>
     <div class="hr"></div>
-    <br><br><br>
+    <br><br>
     <div class="line">
       <p class="bold">Pantalla:</p>
       <p>Paneles duales LCD 7,3 cm</p>
