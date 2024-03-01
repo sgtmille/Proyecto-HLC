@@ -7,7 +7,7 @@ include "../backend/includes/functions.php";
 
 $db = new db("hlc");
 
-Router::get("/public",function(){
+Router::get("/",function(){
   echo "Probando los cambios";
 });
 // Router::get('/', fn()=>render("home"));
