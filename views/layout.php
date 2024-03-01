@@ -46,7 +46,7 @@
     <div class="content">
       <h1>DREAMTECH</h1>
       <h2>El unico limite es tu imaginación</h2>
-      <a class="btn --btn-header" href="views/login.php">Iniciar Sesión</a>
+      <a class="btn --btn-header" href="/login">Iniciar Sesión</a>
     </div>
   </header>
 <?php endif?>
