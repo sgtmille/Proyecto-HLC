@@ -21,7 +21,16 @@ export const formCreate = ($form,d=document)=>{
       method:"POST",
       body:formData
     })
-    .then(res=>res.ok ? alert("Se han enviado los datos") : Promise.reject(res))
+    .then(res=>res.ok
+      ? sendAlert({
+        title:"Exito",
+        text:"Se han enviado los datos",
+        cb:()=>{
+          f.reset()
+          history.back()
+        }
+      })
+      : Promise.reject(res))
     .catch(err=>alert("No se pudo enviar el formulario!"))
   })
 }
