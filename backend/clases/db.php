@@ -12,7 +12,7 @@ class db{
   }
   function __construct($table){
     try{
-      $this->db = new mysqli("localhost","root","root",$table);
+      $this->db = new mysqli("localhost","root","",$table);
     }catch(Exception $er){
       echo $er->getMessage();
       exit;
